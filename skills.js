@@ -1,16 +1,9 @@
+
+
+
+
 // comfort zone skills
-const comfort_zone_skills = [python,
-    postgresql,
-    javascript,
-    css,
-    html,
-    vms,
-    macos,
-    ubuntu,
-    adobe,
-    sheets,
-    excel,
-];
+
 const python = {
     name: 'python',
     level: 4,
@@ -66,17 +59,20 @@ const excel = {
     level: 4,
     projects: [],
 };
+const comfort_zone_skills = [python,
+    postgresql,
+    javascript,
+    css,
+    html,
+    vms,
+    macos,
+    ubuntu,
+    adobe,
+    sheets,
+    excel,
+];
 
 // I'm Solid With
-const solid = [
-    docker,
-    flask,
-    contanerization,
-    bash,
-    fedora,
-    mysql,
-    gas,
-];
 const docker = {
     name: 'docker',
     level: 3,
@@ -112,23 +108,17 @@ const gas = {
     level: 3,
     projects: [],
 };
+const solid = [
+    docker,
+    flask,
+    contanerization,
+    bash,
+    fedora,
+    mysql,
+    gas,
+];
 
 //
-const new_skills = [
-    k8s,
-    kafka,
-    vns,
-    cloud,
-    cloudnative,
-    microservices,
-    drupal,
-    php,
-    laravel,
-    react,
-    angular,
-    wordpress,
-    vue,
-];
 const k8s = {
     name: 'k8s w/ aws and google',
     level: 2,
@@ -194,16 +184,23 @@ const vue = {
     level: 2,
     projects: [],
 };
+const new_skills = [
+    k8s,
+    kafka,
+    vns,
+    cloud,
+    cloudnative,
+    microservices,
+    drupal,
+    php,
+    laravel,
+    react,
+    angular,
+    wordpress,
+    vue,
+];
 
 // excited about
-const exciting = [
-    go,
-    network_automation,
-    livewire,
-    pest,
-    svg,
-    accessability,
-];
 const go = {
     name: 'go',
     level: 0,
@@ -234,3 +231,63 @@ const accessability = {
     level: 0,
     projects: [],
 };
+const exciting = [
+    go,
+    network_automation,
+    livewire,
+    pest,
+    svg,
+    accessability,
+];
+
+// 
+const load_skills = function() {
+    function create_skill_button(skill, skill_class) {
+        button = document.createElement('div');
+        if (skill.name.length > 0){
+            const obj_reference = skill.name.replace(" ", "").toLowerCase();
+            button.innerText = skill.name;
+            button.id = `lvl${skill.level}-${obj_reference}`;
+            button.classList = [obj_reference, skill_class, 'skill-item', 'skill-container'];
+            console.log(button);
+        } else {
+            button.classList = "hidden";
+        };
+        return button;
+    }
+
+    const skill_groups = [
+        {
+            'list': comfort_zone_skills,
+            'heading': "My Comfort Zone:",
+            'class': 'skill-button-comfort'
+        },
+        {
+            'list': solid,
+            'heading': "I'm solid with:",
+            'class': 'skill-button-solid'
+        },
+        {
+            'list': new_skills,
+            'heading': "I'm learning:",
+            'class': 'skill-button-comfort'
+        },
+        {
+            'list': exciting,
+            'heading': "I'm excited to learn about:",
+            'class': 'skill-button-comfort'
+        },
+    ];
+
+    const skill_container = document.getElementById("skills-container");
+    for (let skill_group of skill_groups) {
+        skill_group_container = document.createElement('div');
+        skill_group_container.classList = ['skillGroupContainer', skill_group.class];
+        for (let skill of skill_group.list) {
+            skill_group_button = create_skill_button(skill, skill_group.class);
+            skill_group_container.appendChild(skill_group_button);
+        };
+        skill_container.append(skill_group_container);
+    };
+}
+window.onload = load_skills();
