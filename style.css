@@ -1,0 +1,439 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*:hover,
+*:hover:before,
+*:hover:after {
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the div */
+    transition: background-color 0.3s ease; 
+}
+
+
+html {
+    width: 100%;
+    margin: -10px;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    color: #165050;
+    border-color: #1c6363;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    font-family: 'Karla', sans-serif;
+    background-repeat:repeat-x;
+    background-attachment:fixed;
+    background-position: left top;
+}
+
+body {
+    position: relative;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.button-core {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: #165050;
+}
+
+/* 
+| GRADIENT DISPLAY RULES
+|
++-------------------------------------------------------*/
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2.3px solid #1c6363;
+    position: relative;
+}
+
+/* 
+| GRADIENT DISPLAY RULES
+|
++-------------------------------------------------------*/
+.grid-item.no-gradient {
+    background-image: none !important;
+}
+
+.button-skills-select {
+    background-color: white;
+    background-image: linear-gradient(to right, #f5a3d3, #edd98b) !important;
+    font-weight: 400;
+}
+
+.button-projects-select {
+    background-color: white;
+    background-image: linear-gradient(to right, #edd98b,  #8dc6d8) !important;
+    font-weight: 400;
+}
+
+.button-contact-select {
+    background-color: white;
+    background-image: linear-gradient(to right, #8dc6d8, #f5a3d3) !important;
+    font-weight: 400;
+}
+
+.button-skills-select, .project-detail-grid-title:hover {
+    background-image: linear-gradient(to right, #edd98b,  #8dc6d8, #f5a3d3);
+}
+
+
+
+
+/* 
+| CARD DISPLAY RULES
+|
++-------------------------------------------------------*/
+.detail {
+    font-family: 'Courier Prime';
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.card-wrap {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.card-text {
+    position: absolute;
+    bottom: 0;
+}
+
+.card-detail {
+    padding-left: 8px;
+    position: relative;
+}
+
+/* 
+| BUTTON RULES
+|
++-------------------------------------------------------*/
+.button {
+    font-family: 'Karla', sans-serif;
+    font-size: 1.4em;
+    font-weight: 300;
+    position: relative;
+}
+
+.button-wrap {
+    padding: 2px 17px; /* Provide internal space around the content */
+    margin: 0px 3px;
+    border: 2px solid transparent;
+}
+
+.button-wrap:hover {
+    background-color: #96dfde;
+    text-align: center; /* Align the text to the center */
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the div */
+    transition: background-color 0.3s ease; /* Add a transition effect when hovering over the div */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Add a shadow effect */
+}
+
+.full-row-item {
+    border-bottom: 1.8px solid #1c6363;
+}
+
+/* 
+| LANDING DISPLAY RULES
+|
++-------------------------------------------------------*/
+.fullscreen {
+    padding: 20px;
+    max-width: 100%;
+    font-size: 4em;
+}
+
+.portfolio-small {
+    display: block;
+    font-size: .7em;
+    line-height: 1.1em !important;
+    padding: 1.6% 0 0 0;
+}
+
+#landing-button-container {
+    display:none !important;
+}
+
+#landing-button {
+    width: auto;
+}
+
+.portfolio-expand {
+    font-weight: 600;
+}
+.portfolio-expand:hover {
+    font-weight: 600;
+    background-color: #4dcbcb;
+}
+
+/* 
+| PROJECTS display classes
+|
++-------------------------------------------------------*/
+.projects-button {
+    margin: 0;
+    padding: 0;
+    border-left: 1.8px solid #165050 !important;
+    border-right: none;
+    border-bottom: none;
+    width: 103%;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    position:relative;
+}
+
+.project-detail {
+    background-color: #96dfde;
+}
+
+.projects-title-container {
+    padding-left: 8px;
+    height: 4em;
+    position: relative;
+}
+
+.projects-title-div {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.projects-detail-key {
+    font-size: 1em;
+    font-weight: 100;
+    padding-right: 5%;
+}
+
+.projects-name {
+    font-family: 'Courier Prime';
+    font-size: 1.9em;
+}
+
+.projects-container--hidden {
+    display:none !important;
+}
+
+.skills-container--hidden {
+    display:none !important;
+}
+
+.contact-container--hidden {
+    display:none !important;
+}
+
+.landing-container--hidden {
+    display:none !important;
+}
+
+/* --------- projects expand area */
+
+.project-detail--hidden {
+    display:none !important;
+}
+
+/* detail expansion */
+.project-detail, .project-detail-title {
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    justify-content: left;
+    width: 100% !important;
+    line-height: 1.1em;
+}
+
+.project-detail-grid, .project-detail-grid-title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 0;
+    position: relative;
+    border-bottom: 1.2px solid #1c6363;
+}
+
+.project-detail-key, .project-detail-key-title {
+    font-weight: 200;
+    font-size: 1.1em;
+    width: 12%;
+    padding-right: .5% !important;
+    text-align: right;
+    margin-top: auto;
+}
+
+.project-detail-key-title {
+    padding-bottom: .2%;
+}
+
+.project-detail-value, .project-detail-value-title {
+    display: inline-block;
+    text-align: left;
+    padding-left: 1%;
+    height: auto;
+    white-space: normal;
+    font-family: 'Courier Prime';
+}
+
+.project-detail-value {
+    padding: 2% 0 0 8px !important;
+}
+
+.project-detail-value-title {
+    font-size: 1.8em !important;
+    height: auto;
+    padding: 4% 1% 1% 1%;
+}
+
+.project-value-wide {
+    width: 98% !important;
+    font-size: 1.2em;
+    padding: 1.5% !important;
+}
+
+.project-value-standard {
+    width: 87% !important;
+    font-size: 1.2em;
+}
+
+.project-detail-value.project-value-standard {
+    border-left: .8px solid #1c6363
+}
+
+/* Landing Rules for Mobile for  */
+#landing-detail {
+    display: block;
+    width: 88%;
+    font-size: .45em;
+    margin: -4% 0 0 2% ;
+    padding: 0%;
+    overflow-wrap: break-word !important;
+    white-space: normal;
+}
+
+#landing-button {
+    font-weight: 700;
+    text-align: justify;
+    width: 100%;
+    font-size: 1.6em;
+    padding: 2% 0 0 0 ;
+}
+
+/* 
+| MEDIA QUERIES
+|
++-------------------------------------------------------*/
+@media screen and (max-width:768px) {
+
+    html {
+        background-image: radial-gradient(#4dcbcb, #ebf9f9);
+    }
+
+    header {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    header {
+        max-height: 3em;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    header {
+        max-height: 4em;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    /* CSS rules for screens that are between 769px and 1024px wide */
+    html {
+        background-image: radial-gradient(#4dcbcb, #ebf9f9);
+    }
+
+    header {
+        min-height: 2em;
+        height: 6em;
+    }
+    
+    .item-col-left-main {
+        padding-left: 10%;
+    }
+
+    .detail {
+        padding-left: 12%;
+    }
+
+    .rowdiv {
+        border-left: 1.8px solid #1c6363 !important;
+    }
+
+    #button-group {
+        width: 44% !important;
+    }
+
+    /* Landing rules for large screens only */
+
+    #landing-detail {
+        display: block;
+        width: 70%;
+        font-size: .45em;
+        margin: 0 auto 0 14% ;
+        padding: 0%;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal;
+    }
+    
+    #landing-button {
+        line-height: .7em;
+        font-weight: 500;
+        letter-spacing: -5px;
+        width: auto;
+        font-size: 2em;
+        padding: 4% 0 0 0;
+        margin: 0 2px 0 10%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+/* CSS rules for screens that are between 769px and 1024px wide */
+    header {
+        min-height: 2em;
+        height: 6em;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+/* CSS rules for screens that are greater than 1025px wide */
+    header {
+        min-height: 2em;
+        height: 6em;
+    }
+}

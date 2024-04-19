@@ -1,0 +1,115 @@
+#grid-container {
+    display:grid;
+    width: 100%;
+    position: fixed;
+}
+
+/* Small Screens */
+@media screen and (max-width:768px) {
+    #grid-container {
+        display: grid;
+        min-width: 100%;
+        min-height: 30em;
+        grid-template-columns: [grid-start] 8% [grid-main-start]42% [grid-mid] 42% [grid-main-end] 8% [grid-end];
+        grid-template-rows: [grid-top] 3.4em [grid-nav-start] 4.2em [grid-body-start] 80% [grid-end-start] 2% [grid-bottom];
+    }
+
+    .item-col-left-main {
+        grid-column:grid-start/grid-end ;
+        grid-row: grid-top/grid-nav-start;
+    }
+
+    .item-col-projects {
+        grid-column:grid-start/grid-mid;
+        grid-row:grid-nav-start/grid-body-start;
+    }
+
+    .item-col-contacts {
+        border-left: solid 1.8px black;
+        grid-column:grid-mid/grid-end;
+        grid-row:grid-nav-start/grid-body-start;
+    }
+
+    .projects-list {
+        display:none;
+    }
+
+    .mobile-nav-button {
+        padding-right: 1em;
+    }
+
+    .projects-list {
+        grid-column: grid-start/grid-end;
+        grid-row: grid-body-start/grid-bottom;
+    }
+
+    .fullscreen-mobile {
+        grid-column: grid-start/grid-end;
+        grid-row: grid-body-start/grid-bottom;
+    }
+}
+
+/* Large Screens */
+@media screen and (min-width:768px) {
+    #grid-container {
+        display: grid;
+        min-width: 100%;
+        min-height: 80em;
+        grid-template-columns: [first] 8% [marginRight] 40% [article] 8% [projectsCol] 22% [contactsCol] 22% [colsEnd];
+        grid-template-rows: [row1-start] 6em [row1-end] 80% [third-line] auto [last-line];
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .item-col-left-main {
+        grid-column: first/projectsCol;
+        grid-row: row1-start/row1-end;
+    }
+
+    .item-col-projects {
+        grid-column: projectsCol/contactsCol;
+        grid-row: row1-start/row1-end;
+        width: 100%;
+    }
+
+    .item-col-contact {
+        grid-column: contactsCol/colsEnd;
+        grid-row: row1-start/row1-end;
+        width: 100%;
+    }
+
+    .list-container-left {
+        grid-column: projectsCol/colsEnd;
+        grid-row: row1-end/third-line;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .fullscreen {
+        grid-column: first/colsEnd;
+        grid-row: row1-end/third-line;
+    }
+
+    .main-detail {
+        grid-column: first/projectsCol;
+        grid-row: row1-end/third-line;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        /* border: 2px solid red; */
+    }
+
+    p {
+        width: 98%;
+        /* border: 2px solid green; */
+        white-space: normal;
+        padding-left: 8px;
+    }
+
+    /* Styles for hiding and showing projects on large screens */
+    .project-detail--hidden:hover {
+        display: block;
+    }
+}
