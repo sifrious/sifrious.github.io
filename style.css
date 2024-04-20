@@ -296,6 +296,14 @@ header {
     height: 20%;
 }
 
+.skills-header-wrap {
+    font-family: 'Courier Prime';
+    font-size: 1.3em !important;
+    padding: 2px 17px; /* Provide internal space around the content */
+    margin: 0px 3px;
+    border: 2px solid transparent;
+}
+
 #main-skill-toggle-container {
     margin-top: 3%;
     padding: 0 0 8 8px 0;
