@@ -25,46 +25,52 @@
                         functionality but should never display anything -->
                     </button>
                 </div>
-                <div id="landing-button">
-                    hello
-                </div>
                 <div id="landing-detail">
                     <span class="portfolio-small">
-                        So happy you're visiting my portfolio! <br><br>
-                        This page holds a selection of my most recent work. I like to tinker with new ideas using python, laravel php, javascript-- whatever seems interesting.<br><br>
-                        Here's what I'm most interested in right now:
-                        <ul>
-                            <li> 
-                                A 
-                                <a href="">
-                                <span id="portfolio-expand-link" class="portfolio-expand">jobs board</span>
+                        I'm a software developer specializing with a focus on 
+                    </span>
+                    <div id="landing-button">
+                        web design & <br>
+                        business process automation
+                    </div>
+                    <span class="portfolio-small">
+                        I write code to solve problems and think with a full stack and database-first mentality.
+                        I enjoy tinkering with new ideas and interacting with theory and the artistic side of coding. 
+                        The best part of being a developer is never running out of new things to learn and to make.
+                        Here's what I'm working on:
+                        <br><br>
+                        <ul id="landing-ul">
+                            <li class="landing-li"> 
+                                <div class="landing-text">
+                                <a href="#">
+                                <span id="portfolio-expand-link" class="portfolio-expand">
+                                    jobs board</span></a>
                                  for my local tech meetup
+                                </div>
                             </li>
-                            <li>
-                                Some <a href="">
+                            <li class="landing-li">
+                                <div class="landing-text">
+                                Some 
+                                <a href="#">
                                     <span id="portfolio-expand-link" class="portfolio-expand">
-                                        app script
-                                    </span>
-                                </a> 
+                                        app script</span></a> 
                                 to turn a google spreadsheet into a public api
+                            </div>
                             </li>
-                            <li>
-                                (slowly) refactoring my
+                            <li class="landing-li">
+                                <div class="landing-text">
+                                refactoring a
                                 <a href="">
                                     <span id="portfolio-expand-link" class="portfolio-expand">
-                                        volunteer application
+                                        volunteer scheduling
                                     </span>
                                 </a>
+                                application
+                            </div>
                             </li>
                         </ul>
                         <span id="portfolio-expand-link" class="portfolio-expand"></span>
                     </span>
-                    <p class="hidden">
-                    So glad you decided to take a moment to check out my portfolio. 
-                    Unfortunately, it's not done yet. So I'm actually really impressed
-                    you're taking the time and that you stumbled on it.
-                    </p>
-                    <p class="hidden">I hope you'll check back later to see the finished design.</p>
                 </div>
             </div>
             <div id="skills-item" class="grid-item full-row-item button card-detail item-col-left-main no-gradient">
@@ -82,7 +88,10 @@
                 </div>
             </div>
             <div id="skills-container" class="skills-container--hidden list-container-left">
-                <id="skill-python" class="skill-container skill-item l1-skill" data-attribute="python">python</id>
+                <div>
+                    <div id="skills-div-preview" class="hidden"> This is going to display some information </div>
+                    <div id="skills-div-heading" class="button-wrap">Skills & Interests</div>
+                </div>
             </div>
             <div id="skills-detail" class="skills-container--hidden main-detail">
                
@@ -550,7 +559,7 @@
                         class="card-text button-core nav-bar-button"
                         aria-expanded="false"
                         aria-controls="contact-container"
-                        data-attribute="contact"aÀ0
+                        data-attribute="contact"
                         parent-item-id="button-contact">
                         <div class="button-wrap">
                         Contact
@@ -567,9 +576,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
     </style> 
-    <script src="skills.js">
-
-    </script>
+    <script src="skills.js"></script>
     <script src="script.js">
     </script>
 </html>

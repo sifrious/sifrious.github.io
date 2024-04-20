@@ -30,7 +30,8 @@ const html = {
     projects: [],
 };
 const vms = {
-    name: 'hosting on virtual machines',
+    name: 'vms',
+    // name: 'hosting on virtual machines',
     level: 4,
     projects: [],
 };
@@ -84,7 +85,8 @@ const flask = {
     projects: [],
 };
 const contanerization = {
-    name: 'hosting using containerized enviornments',
+    // name: 'hosting using containerized enviornments',
+    name: 'containers',
     level: 3,
     projects: [],
 };
@@ -245,49 +247,99 @@ const load_skills = function() {
     function create_skill_button(skill, skill_class) {
         button = document.createElement('div');
         if (skill.name.length > 0){
-            const obj_reference = skill.name.replace(" ", "").toLowerCase();
+            let obj_reference = skill.name.toLowerCase();
+            obj_reference = obj_reference.replace(" ", "");
             button.innerText = skill.name;
             button.id = `lvl${skill.level}-${obj_reference}`;
-            button.classList = [obj_reference, skill_class, 'skill-item', 'skill-container'];
-            console.log(button);
+            // button.classList = [obj_reference, skill_class, 'skill-item', 'skill-container'];
+            button.classList.add(skill_class);
+            button.classList.add('skill-item');
+            button.classList.add('skill_container');
         } else {
             button.classList = "hidden";
         };
         return button;
     }
 
+    function create_skill_toggle_row(skill_group) {
+        let skill_row = document.createElement('div');
+        skill_row.classList.add('skill-group-row');
+        skill_row.classList.add(`${skill_group.class}-container`);
+        // 
+        let skill_row_check_div = document.createElement('div');
+        skill_row_check_div.id = `${skill_group.class}-checkbox-container`;
+        skill_row_check_div.classList.add('check-div');
+        skill_row_check_div.classList.add(`${skill_group.class}-toggle`);
+        if (skill_group.class !== "skill-button-exciting") {
+            skill_row_check_div.classList.add('skill-unchecked');
+            skill_row_check_div.setAttribute("aria-expanded", "false");
+        } else {
+            skill_row_check_div.classList.add('skill-checked');
+            skill_row_check_div.setAttribute("aria-expanded", "true");
+        }
+        //  
+        // let skill_row_check_box = document.createElement('div');
+        // skill_row_check_box.checked = true;
+        // skill_row_check_box.setAttribute("aria-expanded", "true");
+        // skill_row_check_box.id = `${skill_group.class}-checkbox`;
+        // skill_row_check_box.id = `skill-checked`;
+        // skill_row_check_box.classList.add = `${skill_group.class}-checkbox`;
+        // skill_row_check_box.classList.add = `skill-toggle-checkbox`;
+        //
+        // skill_row_check_div.appendChild(skill_row_check_box);
+        skill_row.appendChild(skill_row_check_div);
+        // 
+        let skill_row_label = document.createElement('div');
+        skill_row_label.innerText = skill_group.heading;
+        skill_row.appendChild(skill_row_label);
+        return skill_row;
+    }
+
     const skill_groups = [
         {
             'list': comfort_zone_skills,
-            'heading': "My Comfort Zone:",
+            'time': '',
+            'heading': "My Comfort Zone",
             'class': 'skill-button-comfort'
         },
         {
             'list': solid,
-            'heading': "I'm solid with:",
+            'time': '',
+            'heading': "I'm Solid With",
             'class': 'skill-button-solid'
         },
         {
             'list': new_skills,
-            'heading': "I'm learning:",
-            'class': 'skill-button-comfort'
+            'time': '',
+            'heading': "I'm Learning",
+            'class': 'skill-button-new'
         },
         {
             'list': exciting,
-            'heading': "I'm excited to learn about:",
-            'class': 'skill-button-comfort'
+            'time': '',
+            'heading': "I'm Interested In",
+            'class': 'skill-button-exciting'
         },
     ];
 
     const skill_container = document.getElementById("skills-container");
+    var main_skill_container = document.createElement('div');
+    main_skill_container.id = "main-skill-container";
+    var skill_toggle_container = document.createElement('div');
+    skill_toggle_container.id = "main-skill-toggle-container";
     for (let skill_group of skill_groups) {
-        skill_group_container = document.createElement('div');
+        let skill_group_container = document.createElement('div');
         skill_group_container.classList = ['skillGroupContainer', skill_group.class];
+        const skill_row = create_skill_toggle_row(skill_group);
+        skill_toggle_container.appendChild(skill_row);
         for (let skill of skill_group.list) {
             skill_group_button = create_skill_button(skill, skill_group.class);
-            skill_group_container.appendChild(skill_group_button);
+            // skill_group_container.appendChild(skill_group_button);
+            main_skill_container.appendChild(skill_group_button);
         };
-        skill_container.append(skill_group_container);
+        skill_container.append(main_skill_container);
+        skill_container.append(skill_toggle_container);
+        // skill_container.append(skill_group_container);
     };
 }
 window.onload = load_skills();

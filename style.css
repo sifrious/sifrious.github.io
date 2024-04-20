@@ -14,17 +14,10 @@
 
 html {
     width: 100%;
-    margin: -10px;
-    height: 100%;
     max-width: 100%;
-    max-height: 100%;
     color: #165050;
     border-color: #1c6363;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow: hidden;
     white-space: nowrap;
-    position: absolute;
     font-family: 'Karla', sans-serif;
     background-repeat:repeat-x;
     background-attachment:fixed;
@@ -35,7 +28,6 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    overflow: hidden;
 }
 
 .hidden {
@@ -60,7 +52,6 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     border-bottom: 2.3px solid #1c6363;
     position: relative;
 }
@@ -139,6 +130,8 @@ header {
 }
 
 .button-wrap {
+    font-family: 'Courier Prime';
+    font-size: 1.3em !important;
     padding: 2px 17px; /* Provide internal space around the content */
     margin: 0px 3px;
     border: 2px solid transparent;
@@ -163,7 +156,7 @@ header {
 .fullscreen {
     padding: 20px;
     max-width: 100%;
-    font-size: 4em;
+    font-size: 3.5em;
 }
 
 .portfolio-small {
@@ -181,12 +174,147 @@ header {
     width: auto;
 }
 
+#landing-ul {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 0;
+    list-style-type: none;
+}
+.landing-li {
+    margin: 1.5%;
+    width: 24%;
+    border: 2px solid #1c6363;
+    height: 7em;
+    padding: 2%;
+    display: flex;
+    align-items: flex-end;
+    min-width: 170px !important;
+    min-height: 150px;
+}
+.landing-li a {
+    font-family: 'Courier Prime';
+    color:#1c6363;
+    text-decoration: none;
+}
+.landing-li a:hover {
+    font-family: 'Courier Prime';
+}
 .portfolio-expand {
     font-weight: 600;
 }
 .portfolio-expand:hover {
     font-weight: 600;
     background-color: #4dcbcb;
+}
+
+/* 
+| SKILL PILL BUTTON RULES
+|
++-------------------------------------------------------*/
+#main-skill-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    height: auto;
+}
+
+.skill-item {
+    font-size: 1.3em;
+    height: 1.35em;
+    background-color: #4dcbcb;
+    border-radius: 3%;
+    padding: 2.5px;
+    margin: 3px;
+    border: 2px solid #165050;
+    box-shadow:3px 3px 50 0 #1c6363;
+}
+
+.skill-button-comfort-toggle {
+    background-color: #edd98b;
+}
+.skill-button-comfort{
+    background-color: #edd98b;
+}
+
+.skill-button-comfort:hover {
+    background-color: white;
+    background-image: linear-gradient(to bottom, #edd98b, #e9c2b0) !important;
+}
+
+.skill-button-solid-toggle {
+    background-color: #e9c2b0;
+}
+
+.skill-button-solid {
+    background-color: #e9c2b0;
+}
+
+.skill-button-solid:hover {
+    background-color: white;
+    background-image: linear-gradient(to bottom, #e9c2b0, #f5a3d3) !important;
+}
+
+.skill-button-new-toggle {
+    background-color: #f5a3d3;
+}
+
+.skill-button-new {
+    background-color: #f5a3d3;
+}
+
+.skill-button-new:hover {
+    background-color: white;
+    background-image: linear-gradient(to bottom, #f5a3d3, #b0bbd4) !important;
+}
+
+.skill-button-exciting-toggle {
+    background-color: #b0bbd4;
+}
+
+.skill-button-exciting {
+    background-color: #b0bbd4;
+}
+
+.skill-button-exciting:hover {
+    background-color: #b0bbd4;
+}
+
+.skill-item:hover {
+    box-shadow:4 4 20 3 pink;
+    border: 2px solid #165050;
+}
+
+/* 
+/
+*/
+#skills-div-heading {
+    display: block;
+    margin: 10% 0 8px 0;
+    padding: 2% 0;
+    height: 20%;
+}
+
+#main-skill-toggle-container {
+    margin-top: 3%;
+    padding: 0 0 8 8px 0;
+    width: 100%;
+}
+
+.skill-group-row {
+    display:flex;
+    font-size: 1.1em;
+    height: 1.15em;
+    margin-bottom: 6px;
+}
+
+.check-div {
+    display: block;
+    border: 2px solid #1c6363;
+    margin: 4px 10px 4px;
+    width: 14px !important;
+    height: 14px !important;
 }
 
 /* 
@@ -337,8 +465,8 @@ header {
 
 #landing-button {
     font-weight: 700;
-    text-align: justify;
-    width: 100%;
+    font-family: 'Courier Prime';
+    width: 88%;
     font-size: 1.6em;
     padding: 2% 0 0 0 ;
 }
@@ -351,12 +479,24 @@ header {
 
     html {
         background-image: radial-gradient(#4dcbcb, #ebf9f9);
+        height:auto;
+        overflow: scroll !important;
     }
 
     header {
         flex-wrap: wrap;
         width: 100%;
     }
+
+    #main-skill-container {
+        display: none;
+    }
+
+    #main-skill-toggle-container {
+        display:none;
+    }
+
+
 }
 
 @media screen and (max-width:480px) {
@@ -375,6 +515,17 @@ header {
     /* CSS rules for screens that are between 769px and 1024px wide */
     html {
         background-image: radial-gradient(#4dcbcb, #ebf9f9);
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+        overflow-y: hidden; /* Hide vertical scrollbar */
+        margin: -10px;
+        position: absolute;
+        overflow: hidden;
+        height: 100%;
+        max-height: 100%;
+    }
+
+    body {
+        overflow: hidden;
     }
 
     header {
@@ -404,7 +555,7 @@ header {
         display: block;
         width: 70%;
         font-size: .45em;
-        margin: 0 auto 0 14% ;
+        margin: 0 auto 0 10% ;
         padding: 0%;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
@@ -412,14 +563,16 @@ header {
     }
     
     #landing-button {
+        font-family: 'Courier Prime';
         line-height: .7em;
+        font-size: 3em;
         font-weight: 500;
         letter-spacing: -5px;
         width: auto;
-        font-size: 2em;
-        padding: 4% 0 0 0;
-        margin: 0 2px 0 10%;
+        padding: 2% 0 0 0;
+        margin: 0 2px 0 0%;
     }
+    
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
