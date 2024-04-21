@@ -58,6 +58,7 @@ function updateProjectSelect(new_selection, detail_div) {
 */
 
 function updateNavGroupDisplay() {
+    console.log("called update nav group display")
     // reset to landing if currently displayed selection is clicked
     if (nav_select_group === displaying) {
         updateNavSelect(null);
@@ -103,6 +104,7 @@ function toggleHidden(elements, hidden_class_name) {
 };
 
 function toggleDisplayGroup() {
+    console.log("fired toggle display group");
     id = nav_select_group;
     updateNavGroupDisplay();
 };
@@ -147,6 +149,7 @@ const toggleRainbows = function() {
 };
 
 const selectNavGroup = function (e) {
+    console.log("fired select nav group");
     if (nav_highlight_div !== null) {
         nav_select.setAttribute('aria-expanded', 'false');
         toggleRainbows();
@@ -162,13 +165,14 @@ const selectNavGroup = function (e) {
     } else if (nav_select.getAttribute('aria-expanded') === 'false') {
         nav_select.setAttribute('aria-expanded', 'true');
     };
+    console.log(nav_select);
     toggleRainbows(nav_select);
 }
 
 const addProjectListeners = function () {
     const projectButtons = document.getElementsByClassName("projects-button");
     for (let projectButton of projectButtons) {
-        projectButton.addEventListener("click", toggleProjectVisibilty)
+        projectButton.addEventListener("click", toggleProjectVisibilty);
     }
 }
 
@@ -181,6 +185,7 @@ const addNavListeners = function () {
 };
 
 window.onload = function() {
+    console.log("js is working")
     updateNavSelect(null);
     addNavListeners();
     addProjectListeners();
