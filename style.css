@@ -17,7 +17,7 @@ html {
     max-width: 100%;
     color: #165050;
     border-color: #1c6363;
-    white-space: nowrap;
+    white-space: normal;
     font-family: 'Karla', sans-serif;
     background-repeat:repeat-x;
     background-attachment:fixed;
@@ -28,6 +28,11 @@ body {
     position: relative;
     top: 0;
     width: 100%;
+    overflow-x: hidden;
+}
+
+#grid-container {
+    height: auto;
 }
 
 .hidden {
@@ -157,6 +162,13 @@ header {
     padding: 20px;
     max-width: 100%;
     font-size: 3.5em;
+    flex-direction: column;
+    overflow-wrap: break-word;
+}
+
+.project-detail, .project-detail-title {
+    overflow-wrap: break-word;
+    justify-content: left;
 }
 
 .portfolio-small {
@@ -182,21 +194,30 @@ header {
     padding-left: 0;
     list-style-type: none;
 }
-.landing-li {
-    margin: 1.5%;
-    width: 24%;
-    border: 2px solid #1c6363;
-    height: 7em;
-    padding: 2%;
+.landing-a-div {
     display: flex;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    padding: 0;
+    margin: .8%;
+    min-height: 150px !important;
+    height: 7em;
     min-width: 170px !important;
-    min-height: 150px;
-}
-.landing-li a {
+    width: 24%;
     font-family: 'Courier Prime';
     color:#1c6363;
     text-decoration: none;
+    border: 2px solid #1c6363;
+    justify-content: center; 
+    /* Aligns items on the horizontal line */
+    align-items: flex-end;
+}
+.landing-a-div:hover {
+    background-color: #4dcbcb !important;
+}
+.landing-li {
+    margin: 3%;
+    text-align: left;
+    height: fit-content;
 }
 .landing-li a:hover {
     font-family: 'Courier Prime';
@@ -216,7 +237,7 @@ header {
 #main-skill-container {
     display:flex;
     flex-wrap: wrap;
-    justify-content: left;
+    /* justify-content: left; */
     height: auto;
 }
 
@@ -286,6 +307,13 @@ header {
     border: 2px solid #165050;
 }
 
+.skills-container-div {
+    display: block;
+    height:max-content;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
 /* 
 /
 */
@@ -298,10 +326,18 @@ header {
 
 .skills-header-wrap {
     font-family: 'Courier Prime';
+    font-weight: 500;
     font-size: 1.3em !important;
     padding: 2px 17px; /* Provide internal space around the content */
     margin: 0px 3px;
     border: 2px solid transparent;
+}
+.skills-header-wrap-slim {
+    font-family: 'Courier Prime';
+    font-weight: 500;
+    font-size: 1.3em !important;
+    border: 2px solid transparent;
+    margin-top: 15px;
 }
 
 #main-skill-toggle-container {
@@ -323,6 +359,11 @@ header {
     margin: 4px 10px 4px;
     width: 14px !important;
     height: 14px !important;
+}
+
+#skills-detail-container {
+    margin: 2%;
+    text-align: right;
 }
 
 /* 
@@ -396,8 +437,6 @@ header {
 .project-detail, .project-detail-title {
     display: flex;
     flex-direction: column;
-    overflow-wrap: break-word;
-    justify-content: left;
     width: 100% !important;
     line-height: 1.1em;
 }
@@ -415,7 +454,7 @@ header {
 
 .project-detail-key, .project-detail-key-title {
     font-weight: 200;
-    font-size: 1.1em;
+    font-size: .8em;
     width: 12%;
     padding-right: .5% !important;
     text-align: right;
@@ -454,6 +493,7 @@ header {
 .project-value-standard {
     width: 87% !important;
     font-size: 1.2em;
+    padding-right: 4%;
 }
 
 .project-detail-value.project-value-standard {
@@ -483,12 +523,34 @@ header {
 | MEDIA QUERIES
 |
 +-------------------------------------------------------*/
-@media screen and (max-width:768px) {
+@media screen and (max-width:380px) {
+    #grid-container {
+        display:none !important;
+        overflow: scroll;
+    }
+
+    #backup {
+        width:100%;
+        overflow-wrap: break-word;
+        white-space: normal;
+        padding: 3px;
+        margin: 2%;
+    }
+}
+@media screen and (min-width:381px) {
+    #backup {
+        display:none !important;
+    }
+}
+
+@media screen and (min-width:380px) and (max-width:768px) {
 
     html {
         background-image: radial-gradient(#4dcbcb, #ebf9f9);
         height:auto;
-        overflow: scroll !important;
+        position: absolute;
+        left: -2%;
+        top: -2%;
     }
 
     header {
@@ -503,8 +565,20 @@ header {
     #main-skill-toggle-container {
         display:none;
     }
+    
+    .project-detail, .project-detail-title {
+        overflow-wrap: break-word;
+        justify-content: left;
+    }
 
+    #skills-detail {
+        overflow-wrap: break-word !important;
+        justify-content: left !important;
+    }
 
+    .skills-container-div, .skills-header-wrap-slim {
+        text-align: left;
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -524,16 +598,11 @@ header {
     html {
         background-image: radial-gradient(#4dcbcb, #ebf9f9);
         overflow-x: hidden; /* Hide horizontal scrollbar */
-        overflow-y: hidden; /* Hide vertical scrollbar */
         margin: -10px;
         position: absolute;
         overflow: hidden;
         height: 100%;
         max-height: 100%;
-    }
-
-    body {
-        overflow: hidden;
     }
 
     header {
@@ -569,6 +638,13 @@ header {
         overflow-wrap: break-word !important;
         white-space: normal;
     }
+
+    .selected-main-detail {
+        max-height: 90vh;
+        overflow-y: auto;
+        padding-right: 4%;
+        text-align: right;
+    }
     
     #landing-button {
         font-family: 'Courier Prime';
@@ -579,6 +655,22 @@ header {
         width: auto;
         padding: 2% 0 0 0;
         margin: 0 2px 0 0%;
+    }
+
+
+    .selected-main-detail {
+        display: flex;
+        padding-left: 20%;
+    }
+
+    .selected-main-container {
+        width: 100%;
+        position: relative;
+        float: right;
+    }
+
+    #main-skill-container {
+        justify-content: left;
     }
     
 }
@@ -594,6 +686,7 @@ header {
 @media screen and (min-width: 1025px) {
 /* CSS rules for screens that are greater than 1025px wide */
     header {
+        word-wrap: break-word;
         min-height: 2em;
         height: 6em;
     }

@@ -14,7 +14,7 @@
     <body>
         <div id="grid-container">
         <!-- Landing/Default Content -->
-            <div id="landing-container" class="fullscreen fullscreen-mobile">
+            <div id="landing-container" class="landing-container fullscreen fullscreen-mobile">
                 <div id="landing-button-container">
                     <button id="landingButton" 
                         class="nav-bar-button" 
@@ -30,7 +30,7 @@
                         I'm a software developer specializing with a focus on 
                     </span>
                     <div id="landing-button">
-                        web design & <br>
+                        web development & <br>
                         business process automation
                     </div>
                     <span class="portfolio-small">
@@ -40,34 +40,34 @@
                         Here's what I'm working on:
                         <br><br>
                         <ul id="landing-ul">
-                            <li class="landing-li"> 
-                                <div class="landing-text">
-                                <a href="#">
-                                <span id="portfolio-expand-link" class="portfolio-expand">
-                                    jobs board</span></a>
-                                 for my local tech meetup
+                            <a href="#" class="landing-a-div">
+                                <li class="landing-li"> 
+                                    <span id="portfolio-expand-link" class="portfolio-expand">
+                                        jobs board</span>
+                                    for my local tech meetup
+                                </li>
+                            </a>
+                            <a href="#" class="landing-a-div">
+                                <li class="landing-li">
+                                    <div class="landing-text">
+                                    Some 
+                                        <span id="portfolio-expand-link" class="portfolio-expand">
+                                            app script</span>
+                                    to turn a google spreadsheet into a public api
                                 </div>
-                            </li>
-                            <li class="landing-li">
-                                <div class="landing-text">
-                                Some 
-                                <a href="#">
-                                    <span id="portfolio-expand-link" class="portfolio-expand">
-                                        app script</span></a> 
-                                to turn a google spreadsheet into a public api
-                            </div>
-                            </li>
-                            <li class="landing-li">
-                                <div class="landing-text">
-                                refactoring a
-                                <a href="">
-                                    <span id="portfolio-expand-link" class="portfolio-expand">
-                                        volunteer scheduling
-                                    </span>
-                                </a>
-                                application
-                            </div>
-                            </li>
+                                </li>
+                            </a>
+                            <a href="#" class="landing-a-div">
+                                <li class="landing-li">
+                                    <div class="landing-text">
+                                    refactoring a
+                                        <span id="portfolio-expand-link" class="portfolio-expand">
+                                            volunteer scheduling
+                                        </span>
+                                    application
+                                </div>
+                                </li>
+                            </a>
                         </ul>
                         <span id="portfolio-expand-link" class="portfolio-expand"></span>
                     </span>
@@ -89,12 +89,58 @@
             </div>
             <div id="skills-container" class="skills-container--hidden list-container-left">
                 <div>
-                    <div id="skills-div-preview" class="hidden"> This is going to display some information </div>
+                    <div id="skills-div-preview" class="skill-preview"></div>
                     <div id="skills-div-heading" class="skills-header-wrap">Skills & Interests</div>
                 </div>
             </div>
-            <div id="skills-detail" class="skills-container--hidden main-detail">
-               
+            <div id="skills-detail" class="skills-container--hidden selected-main-detail main-detail">
+               <div id="skills-detail-container" class="skills-detail-container selected-main-container">
+                    <div class="skills-container-div">
+                        I love information.
+                        I love the power that comes with using code to solve problems.
+                        The ability to address, quantify and evaluate large amounts of data and transform it to 
+                        useful information is what excites me most about coding.<br><br>
+                        <span class="hidden">
+                            Increasing my ability to build and design systems to visualize, query, modify and arrange
+                            information is my primary career and educational goal. And as my breadth of knowledge grows,
+                            I'm learning more about how similar problems are solved and conceptualized across languages,
+                            frameworks, architectures, and systems. For me, technological competency has become more about asking 
+                            more interesting questions and making better requests than finding answers.<br><br>
+                            My professional skills and interests are a snapshot of the tools I've used to ask
+                            questions these questions and to build systems to gain and utilize insights. I'm currently most curious about
+                            <b>relational databases</b> and database management systems, 
+                            <b>messaging systems</b> and related patterns and architectures,
+                            web scraping and crawling for <b>automating data ingestion</b> and
+                            <b>state-driven front end libraries</b> including react, vue
+                            and <b>event-driven systems</b>. The personal projects I've included in this portfolio
+                            are generally experiments to help me explore and solidify these concepts.
+                        </span>
+                    </div>
+                    <div class="skills-header-wrap-slim">Mission & Philosophy</div>
+                    <div class="skills-container-div">
+                        Maybe the world could use more manifestos. My value system and the way I see the world affects my decisions about which technologies to learn, which skills I choose to develop, and which problems I want to consider and to address with code.
+                    </div>
+                    <div class="skills-header-wrap-slim">Personal Background</div>
+                    <div class="skills-container-div">
+                        Before I loved information and databases, I loved libraries.
+                        The amount of stories, of worlds, of possibilities stored neatly in the stacks thrilled me from the time I was a kid.<span class="hidden">
+                        When I began to ask questions about the world I discovered encyclopedias, dictionaries, the indexing and reference systems in reference books and nonfiction texts.
+                        I loved how all of these things were like gateways to more information about the world, more stories, more insights about people and more graphs, charts and pictures.
+                        <br><br>
+                        By the time I got to high school, I knew I liked research better than writing and was volunteering to help my peers do research and write papers. 
+                        I thought I'd like to become an academic librarian.
+                        </span> My interest in library science and desire to earn a MLS was my introduction to databases and programming. 
+                        I've always been a database-first thinker and my natrual intuition in problem solving is data-driven.
+                    </div>
+                    <div class="skills-header-wrap-slim">Non-Technical Interests</div>
+                    <div class="skills-container-div">
+                        I've got to read. It feels like I always have my headphones on with audible audiobooks or podcasts playing. 
+                        I'm usually listening to nonfiction titles about economics, philosophy, history and tech.
+                        I like visiting and volunteering at the library and collecting books, especially cookbooks and books about art, drawing, animation and learning.
+                        I also enjoy short stories, poetry and essays.
+                        <br><br>I like to make music with guitar, cello, singing and recently the ukelele. I like to draw and animate and have dabbled with claymation. I also love cooking and pilates.
+                    </div>
+               </div>
             </div>
         <!-- Projects content -->
             <div id="button-projects" class="grid-item rowdiv full-row-item item-col-projects button no-gradient mobile-nav-button">
@@ -550,7 +596,15 @@
                     </button>
                 </div>
             </div>
-            <div id="projects-detail" class="projects-container--hidden hidden main-detail">
+            <div id="projects-detail" class="projects-container--hidden main-detail selected-main-detail">
+                <div id="projects-detail-container" class="projects-detail-container selected-main-container">
+                    My web application portfolio can be divided into two key categories: Flask and Laravel/Jetstream projects.
+                    <br><br>For Flask applications, you'll find 'Mollify' and 'Project Working Title'. 'Mollify' is a scaffolded application built on the concept of database-first design. It's minimalistic in principles, underscoring my focus on efficient database design. On the other side, 'Project Working Title' is a robust local server. This project communicates with a Chrome extension through RESTful API, demonstrating my full-stack development capabilities with Python and JavaScript.
+                    <br><br>In the Laravel and Jetstream zone, I've worked on 'Reteer' and 'Jobs Board'. 'Reteer' is an open-source application currently in its alpha phase. Its central focus is authentication, leveraging roles and permissions in Laravel Jetstream - showing my commitment to secure application development. 'Jobs Board' is that kind of platform that benefits both job seekers and employers. The user-centric design, with Tailwind backing it up, emphasizes a balance between functionality and design value.
+                    <br><br>Regardless of the project, JavaScript frameworks get significant play. I use React in projects like 'Four Letter Words' and 'License Plate Game' to craft dynamic interfaces, while 'Mollify' benefits from Angular usage. It's a testament to my confidence in adapting to variable tech stacks.
+                    <!-- <br><br>Last but not least, my personal website speaks volumes about being both tech-savvy and creative. This Drupal-based site is a creative pit stop for blog posts, digital art, and sometimes, technical explorations too. It represents my consistent approach: every project, big or small, starts as an idea and through creativity, coding skills, and industry best practices, transforms into functioning software. -->
+                </div>
+                <div class="projects-spacer"></div>
             </div>
         <!-- Contacts details -->
             <div id="button-contact" class="grid-item rowdiv full-row-item item-col-contacts button no-gradient mobile-nav-button">
@@ -569,8 +623,18 @@
             </div>
             <div id="contact-container" class="contact-container--hidden list-container-left">
             </div>
-            <div id="contact-detail" class="contact-container--hidden main-detail">
+            <div id="contact-detail" class="contact-container--hidden main-detail selected-main-detail">
+                <div id="contact-detail-container" class="contact-detail-container selected-main-container">
+
+                </div>
             </div>
+        </div>
+        <div id="backup">
+            Here's some facts you should know:
+            <ol>
+                <li> My name is Mary Perry; I am a web developer</li>
+                <li>Your screen is too small to see this site.</li>
+            </ol>
         </div>
     </body>
     <style>

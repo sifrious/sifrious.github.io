@@ -13,6 +13,30 @@
         grid-template-rows: [grid-top] 3.4em [grid-nav-start] 4.2em [grid-body-start] 80% [grid-end-start] 2% [grid-bottom];
     }
 
+    .selected-main-detail {
+        grid-column: grid-main-start/grid-main-end;
+        grid-row: grid-body-start/grid-end-start;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    #skills-container {
+        display:none;
+    }
+
+    .list-container-left {
+        grid-column: grid-main-start/grid-main-end;
+        grid-row: grid-body-start/grid-end-start;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
     .item-col-left-main {
         grid-column:grid-start/grid-end ;
         grid-row: grid-top/grid-nav-start;
@@ -110,5 +134,13 @@
     /* Styles for hiding and showing projects on large screens */
     .project-detail--hidden:hover {
         display: block;
+    }
+
+    /* styles for skill section
+    #skills-detail {
+        grid-column: first/projectsCol;
+        grid-row: row1-end/third-line;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
