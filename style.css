@@ -31,6 +31,11 @@ body {
     overflow-x: hidden;
 }
 
+.main-spacer {
+    display: block;
+    height: 14%;
+}
+
 #grid-container {
     height: auto;
 }
@@ -578,6 +583,10 @@ header {
 
     .skills-container-div, .skills-header-wrap-slim {
         text-align: left;
+    }
+
+    #projects-detail {
+        display:none;
     }
 }
 
