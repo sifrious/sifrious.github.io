@@ -10,6 +10,11 @@ var nav_highlight_name = null;
 var nav_project_select = 'overview';
 var nav_project_select_group = null;
 var displaying = "landing";
+var cascade_dict = {
+    "button-projects": document.getElementById("projectsButton"),
+    "skills-item": document.getElementById("skillsButton"),
+    "button-contact": document.getElementById("contactButton"),
+};
 
 // STATE FUNCTIONS
 
@@ -58,7 +63,6 @@ function updateProjectSelect(new_selection, detail_div) {
 */
 
 function updateNavGroupDisplay() {
-    console.log("called update nav group display")
     // reset to landing if currently displayed selection is clicked
     if (nav_select_group === displaying) {
         updateNavSelect(null);
@@ -104,7 +108,6 @@ function toggleHidden(elements, hidden_class_name) {
 };
 
 function toggleDisplayGroup() {
-    console.log("fired toggle display group");
     id = nav_select_group;
     updateNavGroupDisplay();
 };
@@ -148,24 +151,36 @@ const toggleRainbows = function() {
     };
 };
 
-const selectNavGroup = function (e) {
-    console.log("fired select nav group");
+const triggerGrandchildToggle = function(e) {
+    const grandchild = cascade_dict[e.target.id];
+    if (grandchild) {
+        selectNavGroup(e.target, grandchild);
+        toggleDisplayGroup();
+    };
+}
+
+const selectNavGroup = function (e, grandchild) {
     if (nav_highlight_div !== null) {
         nav_select.setAttribute('aria-expanded', 'false');
         toggleRainbows();
     };
-    const new_nav_select = e.target.offsetParent;
+    var new_nav_select = null;
+    if (e.target) {
+        new_nav_select = e.target.offsetParent;
+    } else {
+        nav_highlight_div = e;
+        new_nav_select = grandchild;
+    }
     if (new_nav_select === nav_select) {
         updateNavSelect(null);
     } else {
-        updateNavSelect(e.target.offsetParent);
+        updateNavSelect(new_nav_select);
     }
     if (nav_select.getAttribute('aria-expanded') === 'true') {
         nav_select.setAttribute('aria-expanded', 'false');
     } else if (nav_select.getAttribute('aria-expanded') === 'false') {
         nav_select.setAttribute('aria-expanded', 'true');
     };
-    console.log(nav_select);
     toggleRainbows(nav_select);
 }
 
@@ -177,7 +192,9 @@ const addProjectListeners = function () {
 }
 
 const addNavListeners = function () {
-    const navButtons = document.getElementsByClassName('nav-bar-button');
+    for (let grandparentId of Object.keys(cascade_dict)) {
+        document.getElementById(grandparentId).addEventListener("click", triggerGrandchildToggle);
+    };
     for (let button of navButtons) {
         button.addEventListener("click", selectNavGroup);
         button.addEventListener("click", toggleDisplayGroup);
@@ -185,7 +202,6 @@ const addNavListeners = function () {
 };
 
 window.onload = function() {
-    console.log("js is working")
     updateNavSelect(null);
     addNavListeners();
     addProjectListeners();
