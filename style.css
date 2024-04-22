@@ -172,11 +172,6 @@ header {
     overflow-wrap: break-word;
 }
 
-.project-detail, .project-detail-title {
-    overflow-wrap: break-word;
-    justify-content: left;
-}
-
 .portfolio-small {
     display: block;
     font-size: .7em;
@@ -202,19 +197,13 @@ header {
 }
 .landing-a-div {
     display: flex;
-    /* align-items: flex-end; */
     padding: 0;
     margin: .8%;
-    min-height: 160px !important;
-    height: 7em;
-    min-width: 160px !important;
-    width: 24%;
     font-family: 'Courier Prime';
     color:#1c6363;
     text-decoration: none;
     border: 2px solid #1c6363;
     justify-content: center; 
-    /* Aligns items on the horizontal line */
     align-items: flex-end;
 }
 .landing-a-div:hover {
@@ -222,7 +211,6 @@ header {
 }
 .landing-li {
     margin: 3%;
-    text-align: left;
     height: fit-content;
 }
 .landing-li a:hover {
@@ -255,7 +243,6 @@ header {
     padding: 2.5px;
     margin: 3px;
     border: 2px solid #165050;
-    box-shadow:3px 3px 50 0 #1c6363;
 }
 
 .skill-button-comfort-toggle {
@@ -309,7 +296,7 @@ header {
 }
 
 .skill-item:hover {
-    box-shadow:4 4 20 3 pink;
+    box-shadow:4px 4px 2.5px 0 #8dc6d8;
     border: 2px solid #165050;
 }
 
@@ -348,7 +335,7 @@ header {
 
 #main-skill-toggle-container {
     margin-top: 3%;
-    padding: 0 0 8 8px 0;
+    padding: 0 0 8px 8px;
     width: 100%;
 }
 
@@ -389,6 +376,11 @@ header {
     position:relative;
 }
 
+.project-detail, .project-detail-title {
+    overflow-wrap: break-word;
+    justify-content: left;
+}
+
 .project-detail {
     background-color: #96dfde;
 }
@@ -415,6 +407,10 @@ header {
 .projects-name {
     font-family: 'Courier Prime';
     font-size: 1.9em;
+}
+
+#projects-detail-container {
+    padding-top: 3%;
 }
 
 .projects-container--hidden {
@@ -652,6 +648,11 @@ header {
         width: 110%;
     }
 
+    .landing-a-div {
+        width: 100%;
+        text-align: center;
+    }
+
     #main-skill-container {
         display: none;
     }
@@ -779,6 +780,10 @@ header {
         padding: 2% 0 0 0;
         margin: 0 2px 0 0%;
     }
+    
+    .landing-li {
+        text-align: left;
+    }
 
 
     .selected-main-detail {
@@ -796,16 +801,7 @@ header {
         justify-content: left;
     }
 
-    /* Contact Rules
-
-    .contact-detail-link {
-        box-shadow: 8px 8px #165050;
-    }
-
-    .contact-detail-link:hover {
-        background-color: #4dcbcb;
-        box-shadow: 8px 8px #4dcbcb;
-    } */
+    /* Contact Rules*/
 
     #contact-detail-pinkary-div {
         display: none;
@@ -815,6 +811,13 @@ header {
         width: fit-content;
         min-width: 190px !important;
         margin: auto 0 0 auto;
+    }
+
+    .landing-a-div {
+        min-height: 160px !important;
+        height: 7em;
+        min-width: 160px !important;
+        width: 24%;
     }
     
 }
