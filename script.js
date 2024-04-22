@@ -192,6 +192,7 @@ const addProjectListeners = function () {
 }
 
 const addNavListeners = function () {
+    const navButtons = document.getElementsByClassName('nav-bar-button');
     for (let grandparentId of Object.keys(cascade_dict)) {
         document.getElementById(grandparentId).addEventListener("click", triggerGrandchildToggle);
     };
