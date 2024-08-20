@@ -261,7 +261,7 @@ const load_skills = function() {
         return button;
     }
 
-    function create_skill_toggle_row(skill_group) {
+    function create_skill_toggle_row(skill_group, justifySide) {
         let skill_row = document.createElement('div');
         skill_row.classList.add('skill-group-row');
         skill_row.classList.add(`${skill_group.class}-container`);
@@ -287,11 +287,16 @@ const load_skills = function() {
         // skill_row_check_box.classList.add = `skill-toggle-checkbox`;
         //
         // skill_row_check_div.appendChild(skill_row_check_box);
-        skill_row.appendChild(skill_row_check_div);
+        if (justifySide !== 'right') {
+            skill_row.appendChild(skill_row_check_div);
+        }
         // 
         let skill_row_label = document.createElement('div');
         skill_row_label.innerText = skill_group.heading;
         skill_row.appendChild(skill_row_label);
+        if (justifySide == 'right') {
+            skill_row.appendChild(skill_row_check_div);
+        }
         return skill_row;
     }
 
@@ -322,24 +327,112 @@ const load_skills = function() {
         },
     ];
 
-    const skill_container = document.getElementById("skills-container");
-    var main_skill_container = document.createElement('div');
-    main_skill_container.id = "main-skill-container";
-    var skill_toggle_container = document.createElement('div');
-    skill_toggle_container.id = "main-skill-toggle-container";
-    for (let skill_group of skill_groups) {
-        let skill_group_container = document.createElement('div');
-        skill_group_container.classList = ['skillGroupContainer', skill_group.class];
-        const skill_row = create_skill_toggle_row(skill_group);
-        skill_toggle_container.appendChild(skill_row);
-        for (let skill of skill_group.list) {
-            skill_group_button = create_skill_button(skill, skill_group.class);
-            // skill_group_container.appendChild(skill_group_button);
-            main_skill_container.appendChild(skill_group_button);
-        };
-        skill_container.append(main_skill_container);
-        skill_container.append(skill_toggle_container);
-        // skill_container.append(skill_group_container);
-    };
+    function createSkillKey(keySetting, identifier, justifySide) {
+        const key = document.createElement('div')
+        key.id = `${identifier}-skill-key`;
+        i = 0;
+        // create container
+        const skill_key_container = document.createElement('div');
+        skill_key_container.classList.add('skill-key-container');
+        skill_key_container.classList.add(`responsive-container-${justifySide}`);
+        // create columns
+        const skill_key_column_left = document.createElement('div');
+        const skill_key_column_right = document.createElement('div');
+        skill_key_column_left.classList.add('skill-key-column');
+        skill_key_column_left.classList.add('skill-key-column-left');
+        skill_key_column_left.classList.add(`responsive-container-${justifySide}`);
+        skill_key_column_right.classList.add('skill-key-column');
+        skill_key_column_right.classList.add('skill-key-column-right');
+        skill_key_column_right.classList.add(`responsive-container-${justifySide}`);
+        for (let skill_group of skill_groups) {
+            const skill_row = create_skill_toggle_row(skill_group, justifySide); // TODO seperate this logic completely
+            if (i >= (skill_groups.length/2)) {
+                skill_key_column_right.appendChild(skill_row);
+            } else {
+                skill_key_column_left.appendChild(skill_row);
+            }
+            i += 1;
+        }
+        skill_key_container.appendChild(skill_key_column_left);
+        skill_key_container.appendChild(skill_key_column_right);
+        // if (keySetting === 'responsive') {
+
+        // }
+        if (keySetting === 'toggle') {
+            const toggle_container = document.createElement('div');
+            toggle_container.id = `${identifier}-skill-toggle-container`;
+            console.log("create toggle container") // TODO
+        }
+        return skill_key_container;
+    }
+
+    function appendResponsiveJustification(element, justifySide) {
+        if (justifySide === 'right' || justifySide == 'left') {
+            element.classList.add(`responsive-container-${justifySide}`);
+        }
+        return element
+    }
+
+    function createSkillsHeading(justifySide, title) {
+        header = appendResponsiveJustification(document.createElement('div'), justifySide);
+        header.classList.add('skills-header-wrap');
+        header.innerText = 'Skills & Interests';
+        header.id = `${title}-skills-header`;
+        return header
+    }
+
+    function createSkillContainer(parentId, justifySide, keySetting) {
+        //get parent element
+        const parent = document.getElementById(parentId);
+        const skill_container = document.createElement('div');
+        const identifier = parentId.split('-')[0];
+        skill_container.appendChild(createSkillsHeading(justifySide, identifier));
+        //create and alter skill container
+        skill_container.id = `${identifier}-skill-container`;
+        skill_container.classList.add("skills-container-div");
+        if (justifySide === 'right' || justifySide === 'left') {
+            skill_container.classList.add(`responsive-container-${justifySide}`);
+        }
+        //create toggle container
+        if (keySetting) {
+            skill_container.appendChild(createSkillKey(keySetting, identifier, justifySide));
+        }
+        //create skill buttons
+        parent.appendChild(skill_container);
+        return skill_container;
+    }
+
+    // const preview_container = document.getElementById("skills-div-preview");
+    // // alter main skill container
+    // var main_skill_container = document.createElement('div');
+    // main_skill_container.id = "main-skill-container";
+    // main_skill_container.classList.add("skills-container-div");
+    // main_skill_container.classList.add("responsive-container-left");
+    // // alter preview skill container
+    // var preview_skill_container = document.createElement('div');
+    // preview_skill_container.id = "preview-skill-container";
+    // preview_skill_container.classList.add("skills-container-div");
+    // preview_skill_container.classList.add("responsive-container-right");
+    // // create toggable content
+    // var skill_toggle_container = document.createElement('div');
+    // skill_toggle_container.id = "main-skill-toggle-container";
+    // for (let skill_group of skill_groups) {
+    //     let skill_group_container = document.createElement('div'); // 
+    //     // skill_group_container.classList = ['skillGroupContainer', skill_group.class];
+    //     const skill_row = create_skill_toggle_row(skill_group); // TODO seperate this logic completely
+    //     skill_toggle_container.appendChild(skill_row);
+    //     for (let skill of skill_group.list) {
+    //         skill_group_button_preview = create_skill_button(skill, skill_group.class);
+    //         skill_group_button_container = create_skill_button(skill, skill_group.class);
+    //         // skill_group_container.appendChild(skill_group_button);
+    //         preview_skill_container.appendChild(skill_group_button_preview);
+    //         main_skill_container.appendChild(skill_group_button_container);
+    //     };
+    //     skill_container.append(skill_toggle_container);
+    //     skill_container.append(main_skill_container);
+    //     preview_container.append(preview_skill_container);
+    // // };
+    const projects_skills_container = createSkillContainer('projects-detail-container', 'right', 'responsive');
+    const main_skills_container = createSkillContainer('skills-div-preview', 'left', '');
 }
 window.onload = load_skills();

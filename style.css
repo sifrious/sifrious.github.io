@@ -55,6 +55,21 @@ body {
     color: #165050;
 }
 
+.responsive-container-right {
+    text-align: right;
+    width: 100%;
+    justify-content: flex-end;
+    border: 2px solid red;
+    float: right;
+}
+
+.responsive-container-left {
+    text-align: left;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+
 /* 
 | GRADIENT DISPLAY RULES
 |
@@ -229,6 +244,7 @@ header {
 |
 +-------------------------------------------------------*/
 #main-skill-container {
+    padding: 1em 0;
     display:flex;
     flex-wrap: wrap;
     /* justify-content: left; */
@@ -243,6 +259,18 @@ header {
     padding: 2.5px;
     margin: 3px;
     border: 2px solid #165050;
+}
+
+.skill-key-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 2px 0 40%;
+}
+
+.skill-key-column {
+    width:100%;
+    min-width: 45%;
 }
 
 .skill-button-comfort-toggle {
@@ -305,6 +333,7 @@ header {
     height:max-content;
     white-space: normal;
     word-wrap: break-word;
+    width: 100%;
 }
 
 /* 
@@ -312,7 +341,6 @@ header {
 */
 #skills-div-heading {
     display: block;
-    margin: 10% 0 8px 0;
     padding: 2% 0;
     height: 20%;
 }
@@ -672,7 +700,7 @@ header {
     }
 
     .skills-container-div, .skills-header-wrap-slim {
-        text-align: left;
+        text-align: center;
     }
 
     #projects-detail {
@@ -795,10 +823,6 @@ header {
         width: 100%;
         position: relative;
         float: right;
-    }
-
-    #main-skill-container {
-        justify-content: left;
     }
 
     /* Contact Rules*/
