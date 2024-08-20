@@ -244,17 +244,18 @@ const exciting = [
 
 // 
 const load_skills = function() {
-    function create_skill_button(skill, skill_class) {
+    function create_skill_button(skill, skill_class, identifier) {
         button = document.createElement('div');
         if (skill.name.length > 0){
             let obj_reference = skill.name.toLowerCase();
             obj_reference = obj_reference.replace(" ", "");
             button.innerText = skill.name;
             button.id = `lvl${skill.level}-${obj_reference}`;
-            // button.classList = [obj_reference, skill_class, 'skill-item', 'skill-container'];
+            button.classList = [obj_reference, skill_class, 'skill-item', 'skill-container'];
             button.classList.add(skill_class);
             button.classList.add('skill-item');
-            button.classList.add('skill_container');
+            button.classList.add('skill-container');
+            button.classList.add(`skill-container-${identifier}`);
         } else {
             button.classList = "hidden";
         };
@@ -366,6 +367,16 @@ const load_skills = function() {
         return skill_key_container;
     }
 
+    function createSkillButtons(justifySide, identifier) {
+        const skill_button_container = appendResponsiveJustification(document.createElement('div'), justifySide);
+        for (let skill_group of skill_groups) {
+            for (let skill of skill_group.list) {
+                skill_button_container.appendChild(create_skill_button(skill, skill_group.class, identifier));
+            };
+        };
+        return skill_button_container;
+    }
+
     function appendResponsiveJustification(element, justifySide) {
         if (justifySide === 'right' || justifySide == 'left') {
             element.classList.add(`responsive-container-${justifySide}`);
@@ -398,40 +409,11 @@ const load_skills = function() {
             skill_container.appendChild(createSkillKey(keySetting, identifier, justifySide));
         }
         //create skill buttons
+        skill_container.appendChild(createSkillButtons(justifySide, identifier));
         parent.appendChild(skill_container);
         return skill_container;
     }
 
-    // const preview_container = document.getElementById("skills-div-preview");
-    // // alter main skill container
-    // var main_skill_container = document.createElement('div');
-    // main_skill_container.id = "main-skill-container";
-    // main_skill_container.classList.add("skills-container-div");
-    // main_skill_container.classList.add("responsive-container-left");
-    // // alter preview skill container
-    // var preview_skill_container = document.createElement('div');
-    // preview_skill_container.id = "preview-skill-container";
-    // preview_skill_container.classList.add("skills-container-div");
-    // preview_skill_container.classList.add("responsive-container-right");
-    // // create toggable content
-    // var skill_toggle_container = document.createElement('div');
-    // skill_toggle_container.id = "main-skill-toggle-container";
-    // for (let skill_group of skill_groups) {
-    //     let skill_group_container = document.createElement('div'); // 
-    //     // skill_group_container.classList = ['skillGroupContainer', skill_group.class];
-    //     const skill_row = create_skill_toggle_row(skill_group); // TODO seperate this logic completely
-    //     skill_toggle_container.appendChild(skill_row);
-    //     for (let skill of skill_group.list) {
-    //         skill_group_button_preview = create_skill_button(skill, skill_group.class);
-    //         skill_group_button_container = create_skill_button(skill, skill_group.class);
-    //         // skill_group_container.appendChild(skill_group_button);
-    //         preview_skill_container.appendChild(skill_group_button_preview);
-    //         main_skill_container.appendChild(skill_group_button_container);
-    //     };
-    //     skill_container.append(skill_toggle_container);
-    //     skill_container.append(main_skill_container);
-    //     preview_container.append(preview_skill_container);
-    // // };
     const projects_skills_container = createSkillContainer('projects-detail-container', 'right', 'responsive');
     const main_skills_container = createSkillContainer('skills-div-preview', 'left', '');
 }

@@ -59,13 +59,13 @@ body {
     text-align: right;
     width: 100%;
     justify-content: flex-end;
-    border: 2px solid red;
-    float: right;
+    padding: 0 0 0 3em;
 }
 
 .responsive-container-left {
     text-align: left;
     width: 100%;
+    padding: 0 3em 0 0;
     justify-content: flex-start;
 }
 
@@ -259,18 +259,23 @@ header {
     padding: 2.5px;
     margin: 3px;
     border: 2px solid #165050;
+    display:inline-block
 }
 
 .skill-key-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0 2px 0 40%;
+    padding: 0 2px 0 20%;
 }
 
 .skill-key-column {
-    width:100%;
-    min-width: 45%;
+   width: 45%;
+   flex-direction: column;
+   display: flex;
+   min-width: 200px;
+   max-width: 250px;
+   align-items: end;
 }
 
 .skill-button-comfort-toggle {
@@ -334,6 +339,7 @@ header {
     white-space: normal;
     word-wrap: break-word;
     width: 100%;
+    padding-top: .8em;
 }
 
 /* 
@@ -348,11 +354,12 @@ header {
 .skills-header-wrap {
     font-family: 'Courier Prime';
     font-weight: 500;
-    font-size: 1.3em !important;
+    font-size: 1.6em !important;
     padding: 2px 17px; /* Provide internal space around the content */
     margin: 0px 3px;
     border: 2px solid transparent;
 }
+
 .skills-header-wrap-slim {
     font-family: 'Courier Prime';
     font-weight: 500;
@@ -370,8 +377,10 @@ header {
 .skill-group-row {
     display:flex;
     font-size: 1.1em;
-    height: 1.15em;
+    max-height: 1.15em;
     margin-bottom: 6px;
+    overflow: visible;
+    white-space: nowrap;
 }
 
 .check-div {
@@ -435,10 +444,6 @@ header {
 .projects-name {
     font-family: 'Courier Prime';
     font-size: 1.9em;
-}
-
-#projects-detail-container {
-    padding-top: 3%;
 }
 
 .projects-container--hidden {
@@ -589,6 +594,9 @@ header {
     flex-direction: row;
     height: 75%;
     align-items: flex-end;
+    padding-bottom: 30px;
+    
+    padding-right: 30px;
 }
 
 #contact-detail-container {
